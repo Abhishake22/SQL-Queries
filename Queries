@@ -1,0 +1,14 @@
+
+How to find second highest salary using CTE
+
+WITH CTE AS 
+(
+ SELECT *, DENSE_RANK() OVER (ORDER BY empsalary desc) as  DENSERANK
+ from empsalarie
+)
+
+ SELECT * from CTE
+ WHERE DENSERANK = 2
+
+
+
