@@ -38,4 +38,23 @@ WHERE Ranking = 3
 
  
  
+ ## Calculate Sum of salaries of each department
+
+
+SELECT department,sum(salary) as Department_sum
+from Department
+GROUP BY department
+
+
+## Display the departments where the sum of salaries is $50,000 or more
+
+
+SELECT department, sum(salary) as department_sum
+from Department
+Group by department
+HAVING sum(salary) >= 50000;
+
+
+
+
  
