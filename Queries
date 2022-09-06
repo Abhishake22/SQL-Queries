@@ -24,5 +24,18 @@ WITH CTE AS
  WHERE DENSERANK = 3
  
  
+ How To find Third Highest salary using CTE without showing Ranking column:
+ 
+ WITH CTE AS
+(
+ SELECT ename, empsalary, DENSE_RANK() OVER (ORDER BY empsalary desc) as Ranking
+ FROM empsalarie
+)
+
+SELECT ename, empsalary
+FROM CTE
+WHERE Ranking = 3
+
+ 
  
  
