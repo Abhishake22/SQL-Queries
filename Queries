@@ -55,6 +55,29 @@ Group by department
 HAVING sum(salary) >= 50000;
 
 
+## Interesting Problem statement: Customers who didn’t buy a product 🔔
+
+Write a query to display the ID and name of customers who bought products A and B,
+but didn’t buy product C, ordered by ascending customer ID.
+
+
+SELECT DISTINCT id,name
+FROM orders o
+JOIN customers c
+ON o.customer_id = c.id
+WHERE customer_id IN (SELECT customer_id
+                      FROM orders
+					  WHERE product_name = 'A')
+AND customer_id IN (SELECT customer_id
+                      FROM orders
+					  WHERE product_name = 'B')
+AND customer_id NOT IN (SELECT customer_id
+                      FROM orders
+					  WHERE product_name = 'C')
+ORDER BY id
+
+
+
 
 
  
